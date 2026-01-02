@@ -1,0 +1,1589 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="شركة عراق ستار - الحلول البرمجية المتكاملة للتحول الرقمي">
+    <meta name="keywords" content="برمجة, تطوير مواقع, تطبيقات, استضافة, تسويق رقمي, عراق ستار, حلول برمجية">
+    <meta name="author" content="شركة عراق ستار للحلول البرمجية">
+    <title>شركة عراق ستار للحلول البرمجية</title>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/logo.jpg" type="image/jpeg">
+    
+    <style>
+        /* CSS فاخر ومتطور */
+        :root {
+            --primary: #1a237e;
+            --secondary: #00bcd4;
+            --accent: #ff4081;
+            --gold: #ffc107;
+            --light: #f5f7ff;
+            --dark: #0d1b2a;
+            --gray: #6c757d;
+            --success: #00c853;
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 12px 36px rgba(0, 0, 0, 0.15);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            --border-radius: 16px;
+            --gradient-primary: linear-gradient(135deg, #1a237e 0%, #283593 50%, #303f9f 100%);
+            --gradient-secondary: linear-gradient(135deg, #00bcd4 0%, #00acc1 50%, #0097a7 100%);
+            --gradient-accent: linear-gradient(135deg, #ff4081 0%, #f50057 50%, #c51162 100%);
+            --gradient-gold: linear-gradient(135deg, #ffc107 0%, #ffb300 50%, #ffa000 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+            line-height: 1.7;
+            color: var(--dark);
+            background-color: var(--light);
+            direction: rtl;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+        
+        .flex-between {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        /* Header - تصميم فاخر */
+        .header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            box-shadow: var(--shadow-sm);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 9999;
+            padding: 18px 0;
+            border-bottom: 1px solid rgba(0, 188, 212, 0.1);
+            transition: var(--transition);
+        }
+        
+        .header.scrolled {
+            padding: 12px 0;
+            box-shadow: var(--shadow-md);
+            background: rgba(255, 255, 255, 0.95);
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .logo-container:hover {
+            transform: translateY(-2px);
+        }
+        
+        .logo-wrapper {
+            position: relative;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-circle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(26, 35, 126, 0.25);
+            transition: var(--transition);
+        }
+        
+        .logo-container:hover .logo-circle {
+            transform: rotate(15deg) scale(1.05);
+            box-shadow: 0 10px 30px rgba(26, 35, 126, 0.35);
+        }
+        
+        .logo-star {
+            color: white;
+            font-size: 2.2rem;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .logo-circle::before {
+            content: '';
+            position: absolute;
+            width: 120%;
+            height: 120%;
+            background: var(--gradient-secondary);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: rotate 20s linear infinite;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .company-name {
+            font-size: 1.9rem;
+            font-weight: 900;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+        
+        .company-tagline {
+            font-size: 0.9rem;
+            color: var(--secondary);
+            font-weight: 600;
+            margin-top: 5px;
+            position: relative;
+            padding-right: 10px;
+        }
+        
+        .company-tagline::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 700;
+            transition: var(--transition);
+            padding: 10px 18px;
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-secondary);
+            border-radius: 30px;
+            transform: translateX(100%);
+            transition: var(--transition);
+            z-index: -1;
+        }
+        
+        .nav-link:hover {
+            color: white;
+        }
+        
+        .nav-link:hover::before {
+            transform: translateX(0);
+        }
+        
+        .nav-link i {
+            margin-left: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .admin-btn {
+            background: var(--gradient-accent);
+            color: white !important;
+            padding: 12px 28px !important;
+            border-radius: 30px;
+            box-shadow: 0 6px 20px rgba(255, 64, 129, 0.3);
+        }
+        
+        .admin-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 64, 129, 0.4);
+        }
+        
+        .admin-btn::before {
+            display: none;
+        }
+        
+        .menu-toggle {
+            display: none;
+            background: var(--gradient-primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 6px 20px rgba(26, 35, 126, 0.25);
+        }
+        
+        .menu-toggle:hover {
+            transform: rotate(90deg);
+        }
+        
+        /* Hero Section - تصميم فاخر */
+        .hero {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 220px 0 150px;
+            margin-top: 90px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" preserveAspectRatio="none"><path d="M0,0 L1000,0 L1000,1000 Q500,800 0,1000 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .hero-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .hero-logo-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: var(--gradient-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 15px 40px rgba(0, 188, 212, 0.4);
+            animation: float 6s ease-in-out infinite;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .hero-logo-star {
+            color: white;
+            font-size: 3rem;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-company-name {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(45deg, #fff 30%, var(--secondary) 70%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-company-tagline {
+            font-size: 2rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .hero-company-tagline::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gradient-gold);
+            border-radius: 2px;
+        }
+        
+        .hero-description {
+            font-size: 1.4rem;
+            line-height: 1.8;
+            margin-bottom: 50px;
+            color: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px 35px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            min-width: 150px;
+            transition: var(--transition);
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+        
+        .stat-text {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            cursor: pointer;
+            border: none;
+            transition: var(--transition);
+            font-size: 1.2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary {
+            background: var(--gradient-secondary);
+            color: white;
+            box-shadow: 0 10px 30px rgba(0, 188, 212, 0.4);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 188, 212, 0.6);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-5px);
+        }
+        
+        .btn i {
+            font-size: 1.3rem;
+        }
+        
+        /* Sections */
+        section {
+            padding: 120px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+        
+        .section-title {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            right: 50%;
+            transform: translateX(50%);
+            width: 120px;
+            height: 5px;
+            background: var(--gradient-gold);
+            border-radius: 3px;
+        }
+        
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 50px 35px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 188, 212, 0.1);
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-secondary);
+            transition: var(--transition);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .service-card:hover::before {
+            height: 100%;
+            opacity: 0.05;
+        }
+        
+        .service-icon {
+            width: 90px;
+            height: 90px;
+            background: var(--gradient-secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            color: white;
+            font-size: 2.5rem;
+            box-shadow: 0 10px 25px rgba(0, 188, 212, 0.3);
+        }
+        
+        .service-card h3 {
+            font-size: 1.9rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            font-weight: 800;
+        }
+        
+        .service-card p {
+            color: var(--gray);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        /* Packages Section */
+        .packages {
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+        }
+        
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .package-card {
+            background: white;
+            padding: 50px 35px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            border: 2px solid transparent;
+        }
+        
+        .package-card.featured {
+            border: 2px solid var(--secondary);
+            box-shadow: var(--shadow-lg);
+            transform: scale(1.05);
+        }
+        
+        .package-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .package-card.featured:hover {
+            transform: scale(1.05) translateY(-15px);
+        }
+        
+        .package-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient-gold);
+            color: white;
+            padding: 10px 30px;
+            border-radius: 30px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            box-shadow: 0 6px 20px rgba(255, 193, 7, 0.3);
+        }
+        
+        .package-card h3 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+            font-weight: 900;
+        }
+        
+        .price {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--secondary);
+            margin-bottom: 35px;
+            position: relative;
+        }
+        
+        .price::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            right: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+        }
+        
+        .package-features {
+            list-style: none;
+            margin-bottom: 45px;
+            text-align: right;
+        }
+        
+        .package-features li {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .package-features li:last-child {
+            border-bottom: none;
+        }
+        
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 50px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .contact-card {
+            background: white;
+            padding: 35px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 188, 212, 0.1);
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+        }
+        
+        .contact-card h4 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+        
+        .contact-card p {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 50px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(0, 188, 212, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 30px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 12px;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 18px 25px;
+            border: 2px solid rgba(0, 188, 212, 0.2);
+            border-radius: 12px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            background: #f8f9ff;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 4px rgba(0, 188, 212, 0.1);
+            background: white;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 80px 0 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-gold);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .footer-logo-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .footer-logo-star {
+            color: white;
+            font-size: 1.8rem;
+        }
+        
+        .footer-company-name {
+            font-size: 1.8rem;
+            font-weight: 900;
+        }
+        
+        .footer-description {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        
+        .social-link:hover {
+            background: var(--gradient-secondary);
+            transform: translateY(-5px);
+        }
+        
+        .footer-copyright {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Animations */
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .hero-company-name {
+                font-size: 3.2rem;
+            }
+            
+            .hero-company-tagline {
+                font-size: 1.7rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav {
+                position: fixed;
+                top: 90px;
+                right: -100%;
+                width: 85%;
+                height: calc(100vh - 90px);
+                background: white;
+                flex-direction: column;
+                padding: 40px 30px;
+                transition: var(--transition);
+                box-shadow: -10px 0 40px rgba(0, 0, 0, 0.1);
+                z-index: 9998;
+                border-radius: 0 0 0 30px;
+            }
+            
+            .nav.active {
+                right: 0;
+            }
+            
+            .hero {
+                padding: 180px 0 120px;
+            }
+            
+            .hero-company-name {
+                font-size: 2.8rem;
+            }
+            
+            .hero-company-tagline {
+                font-size: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 160px 0 100px;
+                margin-top: 90px;
+            }
+            
+            .hero-logo {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .hero-company-name {
+                font-size: 2.2rem;
+            }
+            
+            .hero-company-tagline {
+                font-size: 1.3rem;
+            }
+            
+            .hero-description {
+                font-size: 1.2rem;
+                padding: 20px;
+            }
+            
+            .hero-stats {
+                gap: 20px;
+            }
+            
+            .stat-item {
+                min-width: 120px;
+                padding: 15px;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .contact-form {
+                padding: 30px;
+            }
+            
+            .logo-wrapper {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .company-name {
+                font-size: 1.6rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                padding: 140px 0 80px;
+            }
+            
+            .hero-company-name {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 15px 30px;
+                font-size: 1.1rem;
+            }
+            
+            .service-card,
+            .package-card,
+            .contact-card {
+                padding: 30px 20px;
+            }
+            
+            .services-grid,
+            .packages-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .package-card.featured {
+                transform: scale(1);
+            }
+            
+            .package-card.featured:hover {
+                transform: translateY(-15px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container flex-between">
+            <a href="#home" class="logo-container">
+                <div class="logo-wrapper">
+                    <div class="logo-circle">
+                        <i class="fas fa-star logo-star"></i>
+                    </div>
+                </div>
+                <div class="logo-text">
+                    <div class="company-name">شركة عراق ستار</div>
+                    <div class="company-tagline">للحلول البرمجية</div>
+                </div>
+            </a>
+            
+            <button class="menu-toggle" id="menuToggle" aria-label="قائمة التنقل">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav class="nav" id="mainNav" aria-label="القائمة الرئيسية">
+                <a href="#home" class="nav-link">
+                    <i class="fas fa-home"></i>الرئيسية
+                </a>
+                <a href="#services" class="nav-link">
+                    <i class="fas fa-cogs"></i>الخدمات
+                </a>
+                <a href="#packages" class="nav-link">
+                    <i class="fas fa-box"></i>الباقات
+                </a>
+                <a href="#contact" class="nav-link">
+                    <i class="fas fa-phone"></i>اتصل بنا
+                </a>
+                <a href="admin/login.html" class="nav-link admin-btn">
+                    <i class="fas fa-tachometer-alt"></i>لوحة التحكم
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content container fade-in">
+            <div class="hero-logo">
+                <div class="hero-logo-circle">
+                    <i class="fas fa-star hero-logo-star"></i>
+                </div>
+                <div>
+                    <h1 class="hero-company-name">Iraq Star</h1>
+                    <h2 class="hero-company-tagline">شركة عراق ستار للحلول البرمجية</h2>
+                </div>
+            </div>
+            
+            <p class="hero-description">
+                نحن شركة رائدة في مجال الحلول البرمجية والتقنية، نقدم خدمات متكاملة تشمل تطوير المواقع والتطبيقات، الاستضافة السحابية، التسويق الرقمي، والحلول التقنية المتقدمة. نساعدك في تحويل أفكارك إلى واقع رقمي متميز.
+            </p>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">8+</div>
+                    <div class="stat-text">سنوات خبرة</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-text">مشروع ناجح</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-text">رضا العملاء</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-text">دعم فني</div>
+                </div>
+            </div>
+            
+            <div class="hero-buttons">
+                <a href="#services" class="btn btn-primary">
+                    <i class="fas fa-rocket"></i>استكشف خدماتنا
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <i class="fas fa-comments"></i>تواصل معنا
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">خدماتنا المتكاملة</h2>
+                <p class="section-subtitle">نقدم مجموعة شاملة من الخدمات البرمجية والتقنية التي تلبي جميع احتياجات عملك الرقمي</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>تطوير مواقع الويب</h3>
+                    <p>تصميم وتطوير مواقع ويب احترافية متجاوبة مع جميع الأجهزة باستخدام أحدث التقنيات مثل React, Vue.js, Laravel</p>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>تطبيقات الجوال</h3>
+                    <p>تطوير تطبيقات الهواتف الذكية لأنظمة iOS و Android باستخدام Flutter و React Native مع واجهات استخدام ممتازة</p>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>متاجر إلكترونية</h3>
+                    <p>إنشاء متاجر إلكترونية متكاملة مع أنظمة دفع آمنة وإدارة مخزون وتقارير مبيعات متقدمة</p>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>خدمات الاستضافة</h3>
+                    <p>استضافة سحابية عالية الأداء مع سرعة تحميل فائقة وأمان متقدم ودعم فني على مدار الساعة</p>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>التسويق الرقمي</h3>
+                    <p>خدمات تسويق إلكتروني متكاملة تشمل SEO, SEM, إدارة وسائل التواصل الاجتماعي، وتحليل الأداء</p>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>التصميم الإبداعي</h3>
+                    <p>تصميم جرافيكي إبداعي للشعارات والهوية البصرية والمواد التسويقية بكافة أشكالها</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="packages">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">باقاتنا المتاحة</h2>
+                <p class="section-subtitle">اختر الباقة التي تناسب احتياجات عملك، مع ضمان الجودة والتميز في كل تفصيلة</p>
+            </div>
+            
+            <div class="packages-grid">
+                <div class="package-card fade-in">
+                    <h3>الباقة الأساسية</h3>
+                    <div class="price">500 $</div>
+                    <ul class="package-features">
+                        <li><span>موقع ويب متجاوب</span> <i class="fas fa-check" style="color: var(--success);"></i></li>
+                        <li><span>تصميم 5 صفحات</span> <i class="fas fa-check" style="color: var(--success);"></i></li>
+                        <li><span>استضافة مجانية سنة</span> <i class="fas fa-check" style="color: var(--success);"></i></li>
+                        <li><span>دعم فني محدود</span> <i class="fas fa-times" style="color: var(--accent);"></i></li>
+                        <li><span>شهادة SSL</span> <i class="fas fa-times" style="color: var(--accent);"></i></li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="selectPackage('basic')">اختر الباقة</button>
+                </div>
+                
+                <div class="package-card featured fade-in">
+                    <div class="package-badge">الأكثر طلباً</div>
+                    <h3>الباقة المتقدمة</h3>
+                    <div class="price">1500 $</div>
+                    <ul class="package-features">
+                        <li><span>موقع متكامل متقدم</span> <i class="fas fa-check" style="color: var(--success);"></i></li>
+                        <li><span>تصميم 15 صفحة</span> <i class="fas fa-check" style="color: var(--success);"></i></li>
+                        <li><span>استضافة مجانية سنة</span> <i class="fas fa-check" style="color: var(--success);"></i></li>
+                        <li><span>دعم فني 6 أشهر</span> <i class="fas fa-check" style="color: var(--success);"></i></li>
+                        <li><span>شهادة SSL مجانية</span> <i class="fas fa-check" style="color: var(--success);"></i></li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="selectPackage('advanced')">اختر الباقة</button>
+                </div>
+                
+                <div class="package-card fade-in">
+                    <h3>الباقة الاحترافية</h3>
+                    <div class="price">3000 $</div>
+                    <ul class="package-features">
+                        <li><span>موقع احترافي متكامل</span> <i class="fas fa-check" style="color: var(--success);"></i></li>
+                        <li><span>صفحات غير محدودة</span> <i class="fas fa-check" style="color: var(--success);"></i></li>
+                        <li><span>استضافة مجانية سنة</span> <i class="fas fa-check" style="color: var(--success);"></i></li>
+                        <li><span>دعم فني 24/7</span> <i class="fas fa-check" style="color: var(--success);"></i></li>
+                        <li><span>جميع المزايا الإضافية</span> <i class="fas fa-check" style="color: var(--success);"></i></li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="selectPackage('professional')">اختر الباقة</button>
+                </div>
+                  
+                <div class="package-card fade-in">
+                    <h3>الباقة الاحترافية</h3>
+                    <div class="price">10 $</div>
+                    <ul class="package-features">
+                        <li><span>موقع احترافي متكامل</span> <i class="fas fa-check" style="color: var(--success);"></i></li>
+                        <li><span>صفحات غير محدودة</span> <i class="fas fa-check" style="color: var(--success);"></i></li>
+                        <li><span>استضافة مجانية سنة</span> <i class="fas fa-check" style="color: var(--success);"></i></li>
+                        <li><span>دعم فني 24/7</span> <i class="fas fa-check" style="color: var(--success);"></i></li>
+                        <li><span>جميع المزايا الإضافية</span> <i class="fas fa-check" style="color: var(--success);"></i></li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="selectPackage('professional')">اختر الباقة</button>
+            </div>
+              
+                <div class="package-card fade-in">
+                    <h3>الباقة الاحترافية</h3>
+                    <div class="price">3000 $</div>
+                    <ul class="package-features">
+                        <li><span>موقع احترافي متكامل</span> <i class="fas fa-check" style="color: var(--success);"></i></li>
+                        <li><span>صفحات غير محدودة</span> <i class="fas fa-check" style="color: var(--success);"></i></li>
+                        <li><span>استضافة مجانية سنة</span> <i class="fas fa-check" style="color: var(--success);"></i></li>
+                        <li><span>دعم فني 24/7</span> <i class="fas fa-check" style="color: var(--success);"></i></li>
+                        <li><span>جميع المزايا الإضافية</span> <i class="fas fa-check" style="color: var(--success);"></i></li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="selectPackage('professional')">اختر الباقة</button>
+        </div>
+          
+                <div class="package-card fade-in">
+                    <h3>الباقة الاحترافية</h3>
+                    <div class="price">3000 $</div>
+                    <ul class="package-features">
+                        <li><span>موقع احترافي متكامل</span> <i class="fas fa-check" style="color: var(--success);"></i></li>
+                        <li><span>صفحات غير محدودة</span> <i class="fas fa-check" style="color: var(--success);"></i></li>
+                        <li><span>استضافة مجانية سنة</span> <i class="fas fa-check" style="color: var(--success);"></i></li>
+                        <li><span>دعم فني 24/7</span> <i class="fas fa-check" style="color: var(--success);"></i></li>
+                        <li><span>جميع المزايا الإضافية</span> <i class="fas fa-check" style="color: var(--success);"></i></li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="selectPackage('professional')">اختر الباقة</button>
+                </section>
+
+
+ 
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">تواصل معنا</h2>
+                <p class="section-subtitle">نحن هنا لمساعدتك في تحويل أفكارك إلى واقع رقمي متميز. تواصل معنا الآن!</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-card fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h4>الاتصال الهاتفي</h4>
+                        <p>+968 9123 4567</p>
+                        <p>+968 9234 5678</p>
+                    </div>
+                    
+                    <div class="contact-card fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h4>البريد الإلكتروني</h4>
+                        <p>info@iraqstar.com</p>
+                        <p>support@iraqstar.com</p>
+                    </div>
+                    
+                    <div class="contact-card fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h4>العنوان</h4>
+                        <p>مسقط، سلطنة عمان</p>
+                        <p>العذيبة، شارع السلطان قابوس</p>
+                    </div>
+                    
+                    <div class="contact-card fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h4>ساعات العمل</h4>
+                        <p>الأحد - الخميس: 8 صباحاً - 5 مساءً</p>
+                        <p>الجمعة - السبت: مغلق</p>
+                    </div>
+                </div>
+                
+                <div class="contact-form fade-in">
+                    <h3 style="color: var(--primary); margin-bottom: 35px; text-align: center; font-size: 2rem;">أرسل رسالتك</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">الاسم الكامل</label>
+                            <input type="text" id="name" placeholder="أدخل اسمك الكامل" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">البريد الإلكتروني</label>
+                            <input type="email" id="email" placeholder="أدخل بريدك الإلكتروني" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">رقم الهاتف</label>
+                            <input type="tel" id="phone" placeholder="أدخل رقم هاتفك">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">نوع الخدمة المطلوبة</label>
+                            <select id="service" required>
+                                <option value="">اختر الخدمة</option>
+                                <option value="website">تطوير موقع ويب</option>
+                                <option value="app">تطبيق جوال</option>
+                                <option value="ecommerce">متجر إلكتروني</option>
+                                <option value="hosting">خدمات استضافة</option>
+                                <option value="marketing">تسويق رقمي</option>
+                                <option value="design">تصميم جرافيك</option>
+                                <option value="consultation">استشارة تقنية</option>
+                                <option value="other">خدمة أخرى</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">تفاصيل المشروع</label>
+                            <textarea id="message" placeholder="صف لنا مشروعك وأهدافك..." rows="6" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" id="submitBtn" style="width: 100%;">
+                            <i class="fas fa-paper-plane"></i>إرسال الرسالة
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">
+                        <div class="footer-logo-circle">
+                            <i class="fas fa-star footer-logo-star"></i>
+                        </div>
+                        <div class="footer-company-name">شركة عراق ستار</div>
+                    </div>
+                    <p class="footer-description">
+                        شركة رائدة في مجال الحلول البرمجية والتقنية، نقدم خدمات متكاملة تساعد الشركات والمؤسسات على النمو والازدهار في العصر الرقمي.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="فيسبوك">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="تويتر">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="لينكد إن">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="إنستغرام">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="يوتيوب">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+        
+                <div>
+                    <h3 style="color: ; margin-bottom: 25px; font-size: 1.5rem;">روابط سريعة</h3>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 15px;">
+                            <a href="#home" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: var(--transition);">
+                                <i class="fas fa-chevron-left" style="margin-left: 10px;"></i>الرئيسية
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 15px;">
+                            <a href="#services" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: var(--transition);">
+                                <i class="fas fa-chevron-left" style="margin-left: 10px;"></i>الخدمات
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 15px;">
+                            <a href="#packages" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: var(--transition);">
+                                <i class="fas fa-chevron-left" style="margin-left: 10px;"></i>الباقات
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 15px;">
+                            <a href="#contact" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: var(--transition);">
+                                <i class="fas fa-chevron-left" style="margin-left: 10px;"></i>اتصل بنا
+                            </a>
+                        </li>
+                        <li>
+                            <a href="admin/login.html" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: var(--transition);">
+                                <i class="fas fa-chevron-left" style="margin-left: 10px;"></i>لوحة التحكم
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 style="color: white; margin-bottom: 25px; font-size: 1.5rem;">اشترك في نشرتنا</h3>
+                    <p style="color: rgba(255,255,255,0.8); margin-bottom: 25px;">
+                        اشترك في نشرتنا البريدية لتصلك آخر العروض والتحديثات
+                    </p>
+                    <div style="display: flex; gap: 10px;">
+                        <input type="email" placeholder="بريدك الإلكتروني" style="flex: 1; padding: 15px; border: none; border-radius: 8px; font-family: 'Cairo', sans-serif;">
+                        <button class="btn btn-primary" style="padding: 15px 25px;">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-copyright">
+                <p>&copy; 2026 شركة عراق ستار للحلول البرمجية. جميع الحقوق محفوظة.</p>
+                <p style="margin-top: 10px; font-size: 0.9rem;">تميز رقمي، إبداع لا حدود له</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notification -->
+    <div id="notification" class="notification"></div>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // تعريف العناصر
+            const menuToggle = document.getElementById('menuToggle');
+            const mainNav = document.getElementById('mainNav');
+            const header = document.getElementById('header');
+            const contactForm = document.getElementById('contactForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const notification = document.getElementById('notification');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            // إدارة القائمة المتنقلة
+            menuToggle.addEventListener('click', () => {
+                mainNav.classList.toggle('active');
+                menuToggle.style.transform = mainNav.classList.contains('active') 
+                    ? 'rotate(90deg)' 
+                    : 'rotate(0)';
+            });
+            
+            // إغلاق القائمة عند النقر على رابط
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mainNav.classList.remove('active');
+                    menuToggle.style.transform = 'rotate(0)';
+                });
+            });
+            
+            // تأثير التمرير للهيدر
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+                
+                // تأثير الظهور للعناصر
+                const fadeElements = document.querySelectorAll('.fade-in');
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementTop < windowHeight - 100) {
+                        element.style.animation = 'fadeInUp 0.8s ease forwards';
+                    }
+                });
+            });
+            
+            // التنقل السلس
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // إرسال نموذج الاتصال
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // جمع البيانات
+                const formData = {
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    service: document.getElementById('service').value,
+                    message: document.getElementById('message').value,
+                    date: new Date().toLocaleString('ar-OM'),
+                    company: 'شركة عراق ستار للحلول البرمجية'
+                };
+                
+                // عرض حالة التحميل
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جارٍ الإرسال...';
+                submitBtn.disabled = true;
+                
+                // محاكاة الإرسال
+                setTimeout(() => {
+                    // إعادة تعيين النموذج
+                    contactForm.reset();
+                    
+                    // استعادة الزر
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    
+                    // عرض إشعار النجاح
+                    showNotification('شكراً لتواصلك مع شركة عراق ستار! سنتواصل معك خلال 24 ساعة.', 'success');
+                    
+                    // حفظ البيانات (محاكاة)
+                    saveContact(formData);
+                }, 2000);
+            });
+            
+            // دالة عرض الإشعارات
+            function showNotification(message, type = 'success') {
+                notification.textContent = message;
+                notification.className = `notification ${type} show`;
+                
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 5000);
+            }
+            
+            // دالة حفظ الاتصال
+            function saveContact(data) {
+                let contacts = JSON.parse(localStorage.getItem('iraqStarContacts') || '[]');
+                contacts.push(data);
+                localStorage.setItem('iraqStarContacts', JSON.stringify(contacts));
+                console.log('تم حفظ بيانات الاتصال:', data);
+            }
+            
+            // دالة اختيار الباقة
+            window.selectPackage = function(packageType) {
+                const packages = {
+                    basic: 'الباقة الأساسية',
+                    advanced: 'الباقة المتقدمة',
+                    professional: 'الباقة الاحترافية'
+                };
+                
+                // تعبئة النموذج
+                document.getElementById('service').value = 'website';
+                document.getElementById('message').value = `أرغب في الاستفسار عن ${packages[packageType]} من شركة عراق ستار للحلول البرمجية.`;
+                
+                // التمرير لنموذج الاتصال
+                document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+                
+                // عرض إشعار
+                showNotification(`تم اختيار ${packages[packageType]}. يمكنك الآن إرسال طلبك!`, 'success');
+            };
+            
+            // تأثيرات إضافية للشبكات الاجتماعية
+            document.querySelectorAll('.social-link').forEach(link => {
+                link.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.1)';
+                });
+                
+                link.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+            
+            // تهيئة تأثيرات الظهور
+            setTimeout(() => {
+                window.dispatchEvent(new Event('scroll'));
+            }, 500);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول - لوحة تحكم Iraq Star</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #1a252f;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --border-radius: 10px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, var(--primary) 0%, #34495e 100%);
+            color: #333;
+            direction: rtl;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .login-container {
+            width: 100%;
+            max-width: 450px;
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .login-box {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .login-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .logo {
+            margin-bottom: 30px;
+        }
+        
+        .logo-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+        
+        .login-box h1 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
+        
+        .login-box p {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+            text-align: right;
+            position: relative;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 15px 45px 15px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            font-family: 'Cairo', sans-serif;
+            transition: var(--transition);
+            background: #f9f9f9;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--secondary);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        }
+        
+        .form-group input::placeholder {
+            color: #aaa;
+        }
+        
+        .input-icon {
+            position: absolute;
+            left: 15px;
+            top: 42px;
+            color: #777;
+            font-size: 1.1rem;
+        }
+        
+        .password-toggle {
+            position: absolute;
+            left: 15px;
+            top: 42px;
+            background: none;
+            border: none;
+            color: #777;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+        
+        .password-toggle:hover {
+            color: var(--secondary);
+        }
+        
+        .btn-login {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, var(--secondary), #2980b9);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'Cairo', sans-serif;
+            margin-top: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-login:hover {
+            background: linear-gradient(135deg, #2980b9, var(--secondary));
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+        }
+        
+        .btn-login.loading::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s linear infinite;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        @keyframes spin {
+            to { transform: translateY(-50%) rotate(360deg); }
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 25px;
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+        
+        .back-link:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+        
+        .back-link i {
+            margin-right: 5px;
+        }
+        
+        .forgot-password {
+            display: block;
+            margin-top: 15px;
+            color: #777;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        
+        .forgot-password:hover {
+            color: var(--secondary);
+        }
+        
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            padding: 15px 25px;
+            border-radius: var(--border-radius);
+            color: white;
+            font-weight: 600;
+            z-index: 1000;
+            transform: translateX(-150%);
+            transition: transform 0.5s ease;
+            max-width: 350px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .notification.show {
+            transform: translateX(0);
+        }
+        
+        .notification.success {
+            background: #27ae60;
+        }
+        
+        .notification.error {
+            background: var(--accent);
+        }
+        
+        .notification.warning {
+            background: #f39c12;
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+            20%, 40%, 60%, 80% { transform: translateX(10px); }
+        }
+        
+        @media (max-width: 576px) {
+            .login-box {
+                padding: 30px 20px;
+            }
+            
+            .login-box h1 {
+                font-size: 1.8rem;
+            }
+            
+            .logo-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Container -->
+    <div class="login-container">
+        <div class="login-box">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <h1>Iraq Star</h1>
+                <p>لوحة التحكم الإدارية</p>
+            </div>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">اسم المستخدم</label>
+                    <input type="text" id="username" name="username" placeholder="أدخل اسم المستخدم" required>
+                    <i class="fas fa-user input-icon"></i>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">كلمة المرور</label>
+                    <input type="password" id="password" name="password" placeholder="أدخل كلمة المرور" required>
+                    <i class="fas fa-lock input-icon"></i>
+                    <button type="button" class="password-toggle" id="passwordToggle">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+                
+                <button type="submit" class="btn-login" id="loginButton">
+                    <span id="loginText">تسجيل الدخول</span>
+                </button>
+                
+                <a href="#" class="forgot-password" id="forgotPasswordLink">نسيت كلمة المرور؟</a>
+            </form>
+            
+            <a href="index.html" class="back-link">
+                <i class="fas fa-arrow-right"></i> العودة للموقع الرئيسي
+            </a>
+        </div>
+    </div>
+    
+    <!-- Notification -->
+    <div class="notification" id="notification"></div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Elements
+            const loginForm = document.getElementById('loginForm');
+            const passwordToggle = document.getElementById('passwordToggle');
+            const passwordField = document.getElementById('password');
+            const loginButton = document.getElementById('loginButton');
+            const notification = document.getElementById('notification');
+            
+            // Toggle password visibility
+            passwordToggle.addEventListener('click', function() {
+                const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordField.setAttribute('type', type);
+                this.innerHTML = type === 'password' ? '<i class="fas fa-eye"></i>' : '<i class="fas fa-eye-slash"></i>';
+            });
+            
+            // Handle login form submission
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+                
+                if (!username || !password) {
+                    showNotification('يرجى ملء جميع الحقول', 'error');
+                    return;
+                }
+                
+                // Simulate login process
+                simulateLogin(username, password);
+            });
+            
+            // Forgot password link
+            document.getElementById('forgotPasswordLink').addEventListener('click', function(e) {
+                e.preventDefault();
+                showNotification('برجاء التواصل مع مدير النظام لاستعادة كلمة المرور', 'warning');
+            });
+        });
+        
+        // Simulate login process
+        function simulateLogin(username, password) {
+            const loginButton = document.getElementById('loginButton');
+            const loginText = document.getElementById('loginText');
+            
+            // Show loading state
+            loginButton.classList.add('loading');
+            loginText.textContent = 'جاري التحقق...';
+            loginButton.disabled = true;
+            
+            // Simulate API call delay
+            setTimeout(() => {
+                // Check credentials (in a real app, this would be a server call)
+                const validCredentials = checkCredentials(username, password);
+                
+                if (!validCredentials) {
+                    // Login failed
+                    loginButton.classList.remove('loading');
+                    loginText.textContent = 'تسجيل الدخول';
+                    loginButton.disabled = false;
+                    
+                    showNotification('اسم المستخدم أو كلمة المرور غير صحيحة', 'error');
+                    
+                    // Add shake animation to form
+                    document.querySelector('.login-box').style.animation = 'shake 0.5s ease';
+                    setTimeout(() => {
+                        document.querySelector('.login-box').style.animation = '';
+                    }, 500);
+                    
+                    return;
+                }
+                
+                // Login successful
+                showNotification('تم تسجيل الدخول بنجاح! جاري التوجيه...', 'success');
+                
+                // Redirect to dashboard after delay
+                setTimeout(() => {
+                    window.location.href = 'dashboard.html';
+                }, 1500);
+            }, 2000);
+        }
+        
+        // Check credentials (simulated)
+        function checkCredentials(username, password) {
+            // In a real application, this would be a server-side check
+            const validUsers = [
+                { username: 'admin', password: 'admin123' },
+                { username: 'user', password: 'user123' },
+                { username: 'test', password: 'test123' }
+            ];
+            
+            return validUsers.some(user => 
+                user.username === username && user.password === password
+            );
+        }
+        
+        // Show notification
+        function showNotification(message, type) {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.className = `notification ${type} show`;
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 4000);
+        }
+        
+        // Focus on username field
+        document.getElementById('username').focus();
+        
+        // Check for login error in URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('error') === 'unauthorized') {
+            setTimeout(() => {
+                showNotification('يجب تسجيل الدخول للوصول إلى لوحة التحكم', 'error');
+            }, 500);
+        }
+    </script>
+</body>
+</html>
